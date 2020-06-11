@@ -1,0 +1,33 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-8 col-xs-12 col-md-offset-3 col-sm-offset-2">
+      <div class="card">
+
+        <div class="image">
+          <img src="http://assets.materialup.com/uploads/fc97b003-ba72-4c6e-9dd3-19bf5002c244/preview.jpg" width="100%">
+        </div>
+
+        <div class="text">
+          
+          <div ></div>
+            <button class="fab" mat-mini-fab (click)="selectPatient(patientcard)">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+          
+          
+
+          <h3>{{patientcard.nompatient}}</h3>
+          <p> <small>{{patientcard.prenompatient}}</small> <br>
+            <small>{{patientcard.emailpatient}}</small><br>
+             <small>{{patientcard.adresspostale}}</small><br>
+
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

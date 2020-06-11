@@ -1,0 +1,111 @@
+<mat-card class="example-card shadow" style="margin-top:2em">
+	<mat-card-content>
+		<div class="container" style="margin-top:2em">
+			<form [formGroup]="patientdataForm" (ngSubmit)=" savePatient()">
+
+				<div class="form-group">
+					<!-- Nom Field -->
+					<div class="col-sm-4">
+						<label for="nompatient" class="control-label required">Nom</label>
+						<input matInput required minLength maxLength type="text" id="nom" class="form-control" formControlName="nompatient"
+							placeholder="nom patient" [(ngModel)]="editingPatientdata.nompatient"
+
+							name="nompatient"
+							 [errorStateMatcher]="errorMatcherInformulaire">
+						<!-- Nom errors display -->
+						<mat-error *ngIf="patientdataForm.get('nompatient').hasError('required')">nom est requi</mat-error>
+						<mat-error *ngIf="patientdataForm.get('nompatient').hasError('minLength')">le  nom doit etre compris entre  3 caractere et 50 caracteres</mat-error>
+						<mat-error *ngIf="patientdataForm.get('nompatient').hasError('maxLength')">le  nom doit etre compris entre  3 caractere et 50 caracteres</mat-error>
+
+					</div>
+					<!-- Prenoms Field -->
+					<div class="col-sm-8">
+						<label for="prenompatient" class="control-label required">Prenoms</label>
+						<input matInput required type="text" id="prenompatient" class="form-control" formControlName="prenompatient"
+							placeholder="prenom patient" [(ngModel)]="editingPatientdata.prenompatient"
+							name="prenompatient" [errorStateMatcher]="errorMatcherInformulaire">
+						<!-- Prenoms errors display -->
+						<mat-error *ngIf="patientdataForm.get('prenompatient').hasError('required')">Prenoms est  obligatoire</mat-error>
+						<mat-error *ngIf=" patientdataForm.get('prenompatient').hasError('minLength')">le  prenoms doit contenir au moins 3 caracteres</mat-error>
+						<mat-error *ngIf="patientdataForm.get('prenompatient').hasError('maxLength')">le  prenoms doit etre compris entre  3 caractere et 50 caracteres</mat-error>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<!-- Email Field -->
+					<div class="col-sm-8">
+						<label for="emailpatient">Email</label>
+						<input type="email" id="emailpatient" class="form-control" formControlName="emailpatient"
+							placeholder="adresse Email"
+							[(ngModel)]="editingPatientdata.emailpatient"
+							name="emailpatient"  matInput [errorStateMatcher]="errorMatcherInformulaire" >
+						<!-- Email errors display -->
+						<mat-error *ngIf="patientdataForm.get('emailpatient').hasError('required')">Adresse Email est obligatoire</mat-error>
+						<mat-error *ngIf="patientdataForm.get('emailpatient').hasError('emailregex')">format adresse email invalide </mat-error>
+
+                    </div>
+
+
+				</div>
+
+				<!-- Date Naissance Field -->
+				<div class="form-group">
+					<div class="col-sm-12">
+						<label for="datenaissance">Date de Naissance</label>
+						<input type="text" id="datenaissance" class="form-control" formControlName="datenaissance"
+
+							[(ngModel)]="editingPatientdata.datenaissance"
+							name="datenaissance" matInput [errorStateMatcher]="errorMatcherInformulaire" >
+						<!-- Date naissance  errors display -->
+						<mat-error *ngIf="patientdataForm.get('datenaissance').hasError('required')">Date  est obligatoire</mat-error>
+						<mat-error *ngIf="patientdataForm.get('datenaissance').hasError('dateRegex')">format date erronné</mat-error>
+
+
+                    </div>
+
+
+				</div>
+
+				<!-- Numero de telephone Field -->
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label for="numeropatient">Numero Telephone</label>
+						<input type="text" id="numeropatient" class="form-control" formControlName="numeropatient"
+
+							[(ngModel)]="editingPatientdata.numeropatient"
+							name="numeropatient" matInput [errorStateMatcher]="errorMatcherInformulaire" >
+						<!-- telephone errors display -->
+						<mat-error *ngIf="patientdataForm.get('numeropatient').hasError('required')">numero de telephone est obligatoire</mat-error>
+						<mat-error *ngIf="patientdataForm.get('numeropatient').hasError('minLength')">le numero doit contenir au moins 11 caracteres</mat-error>
+						<mat-error *ngIf="patientdataForm.get('numeropatient').hasError('maxLength')">le numero doit contenir au maximum 13 caracteres</mat-error>
+
+                    </div>
+
+                    <!-- Adresse Postale Field -->
+					<div class="col-sm-6">
+						<label for="adresspostale" class="control-label required">Adresse Postale</label>
+						<input type="text" id="adresspostale" class="form-control" formControlName="adresspostale"
+							placeholder="adresse Postale"
+							[(ngModel)]="editingPatientdata.adresspostale"
+							name="adresspostale" matInput [errorStateMatcher]="errorMatcherInformulaire">
+						<!-- Adresse  errors display -->
+						<mat-error *ngIf="patientdataForm.get('adresspostale').hasError('required')">adresse postale  est obligatoire</mat-error>
+						<mat-error *ngIf="patientdataForm.get('adresspostale').hasError('minLength')">doit contenir au moins 8 caracteres</mat-error>
+						<mat-error *ngIf="patientdataForm.get('adresspostale').hasError('maxLength')">ldoit contenir  au maximum 50 caracteres</mat-error>
+
+					</div>
+				</div>
+
+				<!-- Buttons -->
+				<div class="form-group">
+					<div class="col-sm-4"></div>
+					<div class="col-sm-4"><button mat-button (click)="clear()"
+							style="background-color: #3385F1;">Annuler</button></div>
+					<div class="col-sm-4"><button mat-button style="background-color: #3385F1;" type="submit"
+							cdkFocusInitial>Sauvegarder</button></div>
+				</div>
+			</form>
+		</div>
+	</mat-card-content>
+</mat-card>

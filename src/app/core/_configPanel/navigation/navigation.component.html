@@ -1,0 +1,103 @@
+<!--Main Navigation-->
+<header>
+
+    <!-- Sidebar -->
+    <div class="sidebar-fixed position-fixed">
+
+        <a class="logo-wrapper waves-effect">
+            <img src="../../../../assets/img/angular-mdb.png" class="img-fluid" alt="">
+        </a>
+
+        <div class="list-group list-group-flush">
+
+            <a routerLink="dashboard" routerLinkActive="active"
+                class="list-group-item list-group-item-action waves-effect">
+                <mdb-icon fas icon="chart-pie" class="mr-2"></mdb-icon>Tableau de bord
+            </a>
+            <a routerLink="profiluser" routerLinkActive="active"
+                class="list-group-item list-group-item-action waves-effect">
+                <mdb-icon fas icon="user" class="mr-2"></mdb-icon>Profil
+            </a>
+            <ng-container *ngFor="let item of items">
+                <a routerLink="{{item.url}}" routerLinkActive="active"
+                    
+                    class="list-group-item list-group-item-action waves-effect"> <!--*ngIf="authorizationService.hasPrivilege(item.requiredPrivilege.authority)"-->
+                    <mdb-icon fas icon="{{item.icon}}" class="mr-2"></mdb-icon>{{item.title}}
+                </a>
+            </ng-container>
+        </div>
+
+    </div>
+    <!-- Sidebar -->
+
+    <!--Navbar-->
+    <mdb-navbar [containerInside]="false" class="blue-navbar" SideClass="navbar navbar-expand-lg navbar-dark">
+
+        <!-- Navbar brand -->
+        <logo class="ml-3">
+            <a class="navbar-brand" href="">
+                <strong class="white-text">GMEDICALE</strong>
+            </a>
+        </logo>
+
+        <!-- Collapsible content -->
+        <links>
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" (click)="onClickNavigate('/dashboard')" mdbWavesEffect>Accueil
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <!-- Services -->
+                <li class="nav-item dropdown" dropdown>
+                    <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                        mdbWavesEffect>Services
+                    </a>
+                    <!-- Sub-menu -->
+                    <div *dropdownMenu class="dropdown-menu custom-dropdown dropdown dropdown-primary" role="menu">
+                        <div *ngFor="let item of items">
+                            <a 
+                                class="dropdown-item waves-light" mdbWavesEffect
+                                (click)="onClickNavigate(item.url)">{{item.title}}</a> <!--*ngIf="authorizationService.hasPrivilege(item.requiredPrivilege.authority)"-->
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#" mdbWavesEffect>Profil</a>
+                </li>
+            </ul>
+            <!-- Links -->
+
+            <!-- Search form -->
+           <ul class="navbar-nav nav-flex-icons">
+                
+                <li class="nav-item">
+                    
+
+                    <a  *ngIf="eventLogout" (click)="loginClick()" class="nav-link " target="_blank" mdbWavesEffect>
+                        <i class="fas fa-user-circle mr-1"></i>Login
+                    </a>
+                    
+                </li>
+
+                <li class="nav-item">
+                   
+
+                    <a *ngIf="eventLoggIn" (click)="onClickLogout()" class="nav-link " target="_blank" mdbWavesEffect> <!--border border-light-->
+                        <i class="fas fa-sign-out-alt mr-1"></i>Déconnexion
+                    </a>
+
+                </li>
+            </ul>
+        </links>
+        <!-- Collapsible content -->
+
+    </mdb-navbar>
+    <!--/.Navbar-->
+
+</header>
+<!--Main Navigation-->

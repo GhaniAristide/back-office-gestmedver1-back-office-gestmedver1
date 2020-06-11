@@ -1,0 +1,107 @@
+
+<!-- Template Patient-->
+<div class="container" [@routeAnimations]='items' style="margin-top: 0.1em;"*ngIf=boolActiveCardPatient>
+
+    <!-- Title -->
+    <div class="row" style="margin-top: 1.7em;">
+      <div class="col-sm-12">
+        <h5 style="display: inline">Gestion de votre Profil Patient </h5>
+        <a (click)="createNewPatient()" class="ml-4"><i style="color: #3385F1" class="fas fa-plus"></i></a>
+        <a (click)="loadPatients()" class="ml-3"><i style="color: #3385F1" class="fas fa-sync-alt"></i></a>
+      </div>
+    </div>
+
+    <hr style="margin-top:0.5em">
+
+    <!-- Patient Card  -->
+    <div *ngIf=boolToSeeCard>
+      <div *ngIf="patientInject$ | async as patientcard">
+          <app-card-patient [ngClass]="routeAnimationsElements"
+            *ngIf="!selectedPAtientProfil"
+            [patientcard]="patientcard"
+            (selectedPAtientProfil) ="select($event)"
+           >
+          </app-card-patient>
+      </div>
+    </div>
+
+  <div class="" *ngIf=boolToEditCard>
+    <!-- Patient detail -->
+    <app-detail-profil-patients
+      *ngIf="selectedPAtientProfil"
+      [patientcard]="selectedPAtientProfil"
+      (unselect)="clear()"
+      (save)="save($event)">
+    </app-detail-profil-patients>
+  </div>
+
+  <div class="" *ngIf="boolToCreateCard">
+    <!--create new Patient-->
+    <app-card-create-patient *ngIf="createPatientByAdmin"
+     [patient]="createPatientByAdmin"
+     (unselect)="clearPatientforSave()"
+     (save) ="saveNewPatient($event)"
+    >
+
+    </app-card-create-patient>
+  </div>
+
+  </div>
+
+  <!--FIN PROFIL PATIENT-->
+
+
+
+<!-- TEMPLATE PROFIL DOCTEUR-->
+<div class="container" [@routeAnimations]='items' style="margin-top: 0.1em;" *ngIf=boolActiveCardDocteur>
+
+  <!-- Title -->
+  <div class="row" style="margin-top: 1.7em;">
+    <div class="col-sm-12">
+      <h5 style="display: inline">Gestion de votre Profil DOCTEUR </h5>
+      <a (click)="createNewDocteur()" class="ml-4"><i style="color: #3385F1" class="fas fa-plus"></i></a>
+      <a (click)=" loadDocteur()" class="ml-3"><i style="color: #3385F1" class="fas fa-sync-alt"></i></a>
+    </div>
+  </div>
+
+  <hr style="margin-top:0.5em">
+
+  <!-- Docteur Card  -->
+  <div *ngIf=boolToSeeCardDocteur >   
+    
+    <div *ngIf="docteurInject$ | async as docteurcard">
+        <app-card-docteur [ngClass]="routeAnimationsElements"
+          *ngIf="!selectedDocteurProfil"
+          [docteurcard]="docteurcard"
+          (selectedDocteurProfil) ="selectDocteur($event)"
+         >
+        </app-card-docteur>
+    </div>
+  </div>
+
+<div class="" *ngIf=boolToEditCardDocteur>  
+  
+  <!-- Patient detail -->
+  <app-detail-profil-docteurs
+    *ngIf="selectedDocteurProfil"
+    [docteurcard]="selectedDocteurProfil"
+    (unselect)="clearDocteur()"
+    (save)="saveDocteur($event)">
+  </app-detail-profil-docteurs>
+</div>
+
+<div class="" *ngIf="boolToCreateCardDocteur">
+  <!--create new Patient-->
+  <app-card-create-patient *ngIf="createPatientByAdmin"
+   [patient]="createPatientByAdmin"
+   (unselect)="clearPatientforSave()"
+   (save) ="saveNewPatient($event)"
+  >
+
+  </app-card-create-patient>
+</div>
+
+</div>
+
+<!--FIN PROFIL DOCTEUR-->
+

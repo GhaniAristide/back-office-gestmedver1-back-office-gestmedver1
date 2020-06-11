@@ -1,1 +1,203 @@
+@import 'assets/scss/modules/_fonts.scss';
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+////////////////////
+
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #eee;
+  }
+  
+  .card.card-cascade .view.gradient-card-header {
+    padding: 1rem 1rem;
+    text-align: center;
+  }
+  
+  .card.card-cascade h3,
+  .card.card-cascade h4,
+  {
+    margin-bottom: 0px;
+  }
+  
+  .blue-gradient {
+    background: -webkit-linear-gradient(50deg, #45cafc, #303f9f);
+    background: linear-gradient(40deg, #45cafc, #4285f4);
+  }
+  
+  .sidebar-fixed {
+    height: 100vh;
+    width: 270px;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    z-index: 1050;
+    background-color: #fff;
+    padding: 0 1.5rem 1.5rem
+  }
+  
+  .sidebar-fixed .list-group .active {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    -webkit-border-radius: 5px;
+    border-radius: 5px
+  }
+  
+  .sidebar-fixed .logo-wrapper {
+    padding: 2.5rem
+  }
+  
+  .sidebar-fixed .logo-wrapper img {
+    max-height: 50px
+  }
+  
+  @media (min-width: 1200px) {
+    .navbar, .page-footer, main {
+      padding-left: 270px
+    }
+  }
+  
+  @media (max-width: 1199.98px) {
+    .sidebar-fixed {
+      display: none
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+////////////////////
+
+// primary font
+$title_font: 'Titillium Web';
+
+// primary font
+$primary_font: 'Titillium Web';
+
+$dark_blue: #001944;
+$light_blue: #006eb3;
+
+// font-weight
+$thin:100;
+$light:300;
+$regular:400;
+$bold:700;
+$black:900;
+
+// Font size
+$font-xs:12px;
+$font-sm: 14px;
+$primary-fs: 16px;
+$title-fs: 26px;
+$font-md: 18px;
+$font-lg: 20px;
+
+.mat-card {
+    font-family: $primary_font !important;
+}
+
+.btn-white {
+    background-color: white;
+    font-family: $title_font;
+    font-weight: $bold;
+    font-size: $primary-fs !important;
+    text-transform: none !important;
+    padding: .2rem 2.14rem !important;
+    color: $dark_blue !important;
+}
+
+.control-label.required:after { 
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 3px;
+    top: -3px;
+    font-size: 20px;
+}
+
+html, body {
+    height: 100%;
+    background-color: #f2f3f8;
+}
+
+.colored-container {
+    background-color: #3385F1;
+    color: white;
+}
+
+.chip {
+    background-color: #006eb3;
+}
+
+.my-bold-text {
+    font-family: $title_font, sans-serif;
+    font-size: 18px;
+    font-weight: $regular;
+    color: black;
+}
+
+.my-simple-text {
+    font-family: $title_font, sans-serif;
+   
+}
+
+h1 {
+    font-family: $title_font;
+    font-size: $title-fs;
+    font-weight: $regular;
+    color: white;
+}
+
+body {
+    font-family: $primary_font;
+    font-size: $primary-fs;
+    font-weight: $regular;
+    color: $dark_blue !important;
+}
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .spacing{
+      margin-top: 10px; padding: 2.5em;
+  }
+  .cont{
+    font-size: 14px;
+    width: 100%;padding: 2.5em;}
+
+
+///// Snack-bars
+
+.green-snackbar {
+  background: #53f133;
+}
+
+.red-snackbar {
+  background: #ED2C2C;
+}
+
+.warning-snackbar{background: #FFC133;}
+  
+
+/// Modal
+
+.modal-card-foot button {
+  display: inline-block;
+  width: 80px;
+}
+
+.modal-card-head,
+.modal-card-body {
+  text-align: center;
+}
